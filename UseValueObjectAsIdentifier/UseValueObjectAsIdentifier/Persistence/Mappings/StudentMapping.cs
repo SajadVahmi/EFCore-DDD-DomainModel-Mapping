@@ -18,8 +18,7 @@ namespace UseValueObjectAsIdentifier.Persistence.Mappings
         {
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasConversion(new StudentIdValueConverter());
+                .ValueGeneratedNever();
             
         }
     }
@@ -29,6 +28,7 @@ namespace UseValueObjectAsIdentifier.Persistence.Mappings
 
     public class StudentIdValueConverter:ValueConverter<StudentId,Guid>
     {
+
         public StudentIdValueConverter(ConverterMappingHints mappingHints=default)
             :base(MapTo,MapFrom,mappingHints)
         {

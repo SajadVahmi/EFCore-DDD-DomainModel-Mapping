@@ -17,8 +17,8 @@ namespace UseValueObjectAsIdentifier.Persistence.Mappings
         {
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasConversion(new CourseIdValueConverter());
+                .ValueGeneratedNever();
+                
         }
     }
 

@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UseValueObjectAsIdentifier.Persistence.DbContexts;
 
-namespace UseValueObjectAsIdentifier.Persistence.migrations
+namespace UseValueObjectAsIdentifier.Persistence.Migrations
 {
     [DbContext(typeof(UniversityDbContext))]
-    [Migration("20211016164422_init")]
+    [Migration("20211017062411_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,23 @@ namespace UseValueObjectAsIdentifier.Persistence.migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("UseValueObjectAsIdentifier.Domain.Models.Student", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("UseValueObjectAsIdentifier.Domain.Models.StudentCourse", b =>
@@ -57,23 +73,7 @@ namespace UseValueObjectAsIdentifier.Persistence.migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("StudentCourse");
-                });
-
-            modelBuilder.Entity("UseValueObjectAsIdentifier.Domain.Student", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
+                    b.ToTable("StudentCourses");
                 });
 
             modelBuilder.Entity("UseValueObjectAsIdentifier.Domain.Models.StudentCourse", b =>
@@ -82,7 +82,7 @@ namespace UseValueObjectAsIdentifier.Persistence.migrations
                         .WithMany()
                         .HasForeignKey("CourseId");
 
-                    b.HasOne("UseValueObjectAsIdentifier.Domain.Student", null)
+                    b.HasOne("UseValueObjectAsIdentifier.Domain.Models.Student", null)
                         .WithMany()
                         .HasForeignKey("StudentId");
                 });

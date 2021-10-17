@@ -18,23 +18,16 @@ namespace UseValueObjectAsIdentifier.Persistence.Mappings
         {
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasConversion(new StudentCourseIdValueConverter());
-
-            builder.Property(e => e.StudentId)
-                .HasConversion(new StudentIdValueConverter());
-
-            builder.Property(e => e.CourseId)
-                .HasConversion(new CourseIdValueConverter());
+                .ValueGeneratedNever();
 
             builder.HasOne<Student>()
                 .WithMany()
-                .HasForeignKey("StudentId");
+                .HasForeignKey(e=>e.StudentId);
 
 
             builder.HasOne<Course>()
                .WithMany()
-               .HasForeignKey("CourseId");
+               .HasForeignKey(e=>e.CourseId);
 
         }
     }
