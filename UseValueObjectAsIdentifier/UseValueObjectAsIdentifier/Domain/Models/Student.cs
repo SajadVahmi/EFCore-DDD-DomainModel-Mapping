@@ -9,8 +9,13 @@ namespace UseValueObjectAsIdentifier.Domain.Models
 {
     public class Student:AggregateRoot<StudentId>
     {
-        public Student(string firstName, string lastName)
+        public static Student CreateWith(Guid id, string firstName, string lastName)
         {
+            return new Student(id, firstName, lastName);
+        }
+        protected Student(Guid id,string firstName, string lastName)
+        {
+            Id = new StudentId(id);
             FirstName = firstName;
             LastName = lastName;
         }

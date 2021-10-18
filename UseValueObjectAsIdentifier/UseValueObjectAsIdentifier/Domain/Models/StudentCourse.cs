@@ -9,11 +9,15 @@ namespace UseValueObjectAsIdentifier.Domain.Models
 {
     public class StudentCourse:AggregateRoot<StudentCourseId>
     {
-        public StudentCourse(StudentCourseId id, StudentId studentId, CourseId courseId, decimal mark)
+        public static StudentCourse CreateWith(Guid id,Guid studentId,Guid courseId,decimal mark)
         {
-            Id = id;
-            StudentId = studentId;
-            CourseId = courseId;
+            return new StudentCourse(id, studentId, courseId, mark);
+        }
+        protected StudentCourse(Guid id, Guid studentId, Guid courseId, decimal mark)
+        {
+            Id = new StudentCourseId(id);
+            StudentId = new StudentId(studentId);
+            CourseId = new CourseId(courseId);
             Mark = mark;
         }
 
