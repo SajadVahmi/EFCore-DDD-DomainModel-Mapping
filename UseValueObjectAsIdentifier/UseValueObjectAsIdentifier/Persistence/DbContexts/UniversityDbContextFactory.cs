@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace UseValueObjectAsIdentifier.Persistence.DbContexts
             string connectionString="Server=.;Database=University;Integrated Security=true";
             var builder = new DbContextOptionsBuilder<UniversityDbContext>();
             builder.UseSqlServer(connectionString);
+                
             return new UniversityDbContext(builder.Options);
         }
     }

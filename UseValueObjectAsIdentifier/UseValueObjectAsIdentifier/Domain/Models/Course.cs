@@ -13,6 +13,7 @@ namespace UseValueObjectAsIdentifier.Domain.Models
         {
             return new Course(id, name, unit);
         }
+        protected Course() { }
         protected Course(Guid id,string name, int unit
             )
         {
