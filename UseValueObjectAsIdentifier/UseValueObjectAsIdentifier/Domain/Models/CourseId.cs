@@ -1,9 +1,6 @@
 ﻿using Framework.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UseValueObjectAsIdentifier.Domain.Models
 {
@@ -12,7 +9,7 @@ namespace UseValueObjectAsIdentifier.Domain.Models
 
         public Guid Value { get; private set; }
         public CourseId() { Value = Guid.NewGuid(); }
-        public CourseId(Guid value){Value = value;}
+        public CourseId(Guid value) { Value = value; }
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
             yield return Value;

@@ -1,9 +1,5 @@
 ﻿using Framework.Domain.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UseValueObjectAsIdentifier.Domain.Models
 {
@@ -14,7 +10,7 @@ namespace UseValueObjectAsIdentifier.Domain.Models
             return new Course(id, name, unit);
         }
         protected Course() { }
-        protected Course(Guid id,string name, int unit
+        protected Course(Guid id, string name, int unit
             )
         {
             Id = new CourseId(id);
@@ -24,6 +20,6 @@ namespace UseValueObjectAsIdentifier.Domain.Models
 
         public string Name { get; private set; }
         public int Unit { get; private set; }
-        
+
     }
 }

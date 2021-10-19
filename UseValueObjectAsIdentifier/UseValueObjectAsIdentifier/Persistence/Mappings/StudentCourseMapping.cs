@@ -2,12 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using UseValueObjectAsIdentifier.Domain;
 using UseValueObjectAsIdentifier.Domain.Models;
 
 namespace UseValueObjectAsIdentifier.Persistence.Mappings
@@ -22,12 +17,12 @@ namespace UseValueObjectAsIdentifier.Persistence.Mappings
 
             builder.HasOne<Student>()
                 .WithMany()
-                .HasForeignKey(e=>e.StudentId);
+                .HasForeignKey(e => e.StudentId);
 
 
             builder.HasOne<Course>()
                .WithMany()
-               .HasForeignKey(e=>e.CourseId);
+               .HasForeignKey(e => e.CourseId);
 
         }
     }

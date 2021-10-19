@@ -2,11 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using UseValueObjectAsIdentifier.Domain.Models;
 
 namespace UseValueObjectAsIdentifier.Persistence.Mappings
@@ -18,7 +14,7 @@ namespace UseValueObjectAsIdentifier.Persistence.Mappings
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id)
                 .ValueGeneratedNever();
-                
+
         }
     }
 

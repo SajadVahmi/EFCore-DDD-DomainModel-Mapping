@@ -1,15 +1,11 @@
 ﻿using Framework.Domain.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UseValueObjectAsIdentifier.Domain.Models
 {
-    public class StudentCourse:AggregateRoot<StudentCourseId>
+    public class StudentCourse : AggregateRoot<StudentCourseId>
     {
-        public static StudentCourse CreateWith(Guid id, StudentId studentId, CourseId courseId,decimal mark)
+        public static StudentCourse CreateWith(Guid id, StudentId studentId, CourseId courseId, decimal mark)
         {
             return new StudentCourse(id, studentId, courseId, mark);
         }
