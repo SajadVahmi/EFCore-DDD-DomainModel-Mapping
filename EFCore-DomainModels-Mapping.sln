@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ValueObjectAsField", "Value
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueObjectAsIdentifier", "ValueObjectAsIdentifier\ValueObjectAsIdentifier\ValueObjectAsIdentifier.csproj", "{C41743A8-A8DA-4926-8FF6-D36EC2D25433}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueObjectAsField", "ValueObjectAsField\ValueObjectAsField\ValueObjectAsField.csproj", "{ABD9228B-3FF0-482E-9DB0-0B663AC41695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C41743A8-A8DA-4926-8FF6-D36EC2D25433}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C41743A8-A8DA-4926-8FF6-D36EC2D25433}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C41743A8-A8DA-4926-8FF6-D36EC2D25433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD9228B-3FF0-482E-9DB0-0B663AC41695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD9228B-3FF0-482E-9DB0-0B663AC41695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD9228B-3FF0-482E-9DB0-0B663AC41695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD9228B-3FF0-482E-9DB0-0B663AC41695}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{7F284E4B-6123-4A81-A53A-969869483EDB} = {DD7D5DA9-40FA-46F1-B4DE-9F27CD2CD4C5}
 		{C69EF125-A34F-47F0-8522-FCBD79051B29} = {DD7D5DA9-40FA-46F1-B4DE-9F27CD2CD4C5}
 		{C41743A8-A8DA-4926-8FF6-D36EC2D25433} = {92212B30-F756-46B6-A0E5-60C2FDAD6BFD}
+		{ABD9228B-3FF0-482E-9DB0-0B663AC41695} = {B7A66758-6C46-4782-ADC5-48D79AD58D04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C600AA16-2409-4384-AF4D-FDEDD143A422}
