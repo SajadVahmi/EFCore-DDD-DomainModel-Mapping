@@ -13,7 +13,7 @@ namespace ValueObjectAsField.Domain.Models
         protected Name(string firstname, string lastname)
         {
             if (String.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(lastname))
-                throw new Exception("The firstname and lastname are required.");
+                throw new ArgumentException("The firstname and lastname are required.");
             Firstname = firstname;
             Lastname = lastname;
         }
