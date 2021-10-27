@@ -6,10 +6,7 @@ namespace ValueObjectAsField.Domain.Models
 {
     public class Address : ValueObject<Address>
     {
-        public static Address CreateWith(string city, string street, int unit, string zipCode)
-        {
-            return new Address(city, street, unit, zipCode);
-        }
+        public static Address CreateWith(string city, string street, int unit, string zipCode)=> new Address(city, street, unit, zipCode);
         protected Address(string city, string street, int unit, string zipCode)
         {
             if (string.IsNullOrEmpty(city) || string.IsNullOrEmpty(street) || string.IsNullOrEmpty(zipCode))
@@ -28,10 +25,8 @@ namespace ValueObjectAsField.Domain.Models
         public int Unit { get; private set; }
         public string ZipCode { get; private set; }
 
-        public Address ChangeWith(string city, string street, int unit, string zipCode)
-        {
-            return new Address(city, street, unit, zipCode);
-        }
+        public Address ChangeWith(string city, string street, int unit, string zipCode)=> new Address(city, street, unit, zipCode);
+
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
             yield return City;

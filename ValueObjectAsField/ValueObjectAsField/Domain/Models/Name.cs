@@ -6,10 +6,8 @@ namespace ValueObjectAsField.Domain.Models
 {
     public class Name : ValueObject<Name>
     {
-        public static Name CreateWith(string firstname, string lastname)
-        {
-            return new Name(firstname, lastname);
-        }
+        public static Name CreateWith(string firstname, string lastname)=> new Name(firstname, lastname);
+       
         protected Name(string firstname, string lastname)
         {
             if (String.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(lastname))
@@ -18,10 +16,8 @@ namespace ValueObjectAsField.Domain.Models
             Lastname = lastname;
         }
 
-        public Name ChangeWith(string firstname, string lastname)
-        {
-            return new Name(firstname, lastname);
-        }
+        public Name ChangeWith(string firstname, string lastname)=> new Name(firstname, lastname);
+       
 
         public string Firstname { get; private set; }
         public string Lastname { get; private set; }
