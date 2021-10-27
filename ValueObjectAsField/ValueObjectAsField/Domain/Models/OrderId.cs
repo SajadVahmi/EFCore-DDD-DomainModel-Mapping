@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ValueObjectAsField.Domain.Models
 {
-    public class PersonId : ValueObject<PersonId>
+    public class OrderId : ValueObject<OrderId>
     {
-        public static PersonId Create() => new PersonId();
-        public static PersonId CreateWith(Guid value) => new PersonId(value);
-        protected PersonId(){ this.Value = Guid.NewGuid(); }
-        protected PersonId(Guid value) 
+        public static OrderId Create() => new OrderId();
+        public static OrderId CreateWith(Guid value) => new OrderId(value);
+        protected OrderId(){ this.Value = Guid.NewGuid(); }
+        protected OrderId(Guid value) 
         {
             if (value == default(Guid))
                 throw new ArgumentException("Id can not be default guid.");
