@@ -9,8 +9,15 @@ namespace ValueObjectAsField.Domain.Models
 {
     public class PersonId : ValueObject<PersonId>
     {
-        public PersonId(){ this.Value = Guid.NewGuid(); }
-        public PersonId(Guid value) { this.Value = value; }
+        public static PersonId Create() => new PersonId();
+        public static PersonId CreateWith(Guid value) => new PersonId(value);
+        protected PersonId(){ this.Value = Guid.NewGuid(); }
+        protected PersonId(Guid value) 
+        {
+            if (value == default(Guid))
+                throw new ArgumentException("Id can not be default guid.");
+            this.Value = value; 
+        }
         public Guid Value { get; private set; }
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
