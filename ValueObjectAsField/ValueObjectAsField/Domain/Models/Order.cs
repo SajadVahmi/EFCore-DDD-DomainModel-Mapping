@@ -9,9 +9,14 @@ namespace ValueObjectAsField.Domain.Models
 {
     public class Order : AggregateRoot<OrderId>
     {
-        public static Order Create=>new Order();
+        public static Order Create()=>new Order();
 
-        protected Order(){}
+        protected Order()
+        {
+            Id = OrderId.CreateWith(Guid.NewGuid());
+            orderLines = new List<OrderLine>();
+
+        }
         public Name Name { get; private set; }
         public Address Address { get; private set; }
 
