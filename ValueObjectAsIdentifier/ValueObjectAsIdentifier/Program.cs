@@ -11,7 +11,7 @@ namespace UseValueObjectAsIdentifier
         static void Main(string[] args)
         {
 
-            var dbContext = UniversityDbContextFactory.GetSqlContext();
+            var dbContext = new UniversityDbContext();
             Console.WriteLine("--------------------------------Insert a student----------------------------------------------------");
             var studentForInsert = Student.CreateWith(
                 id: Guid.NewGuid(),

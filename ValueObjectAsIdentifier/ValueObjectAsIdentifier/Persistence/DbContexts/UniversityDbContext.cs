@@ -7,10 +7,11 @@ namespace UseValueObjectAsIdentifier.Persistence.DbContexts
 {
     public class UniversityDbContext : DbContext
     {
-        public UniversityDbContext(DbContextOptions options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("Server=.;Database=University;Integrated Security=true");
+            base.OnConfiguring(optionsBuilder);
         }
-
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
