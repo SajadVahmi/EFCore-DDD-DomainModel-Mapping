@@ -52,20 +52,36 @@ namespace ValueObjectAsField
             foreach (var item in orderFromDatabase.OrderLines)
                 Console.WriteLine($"Inserted OrderLine {line++}: ProductId:{item.ProductId} Quantity:{item.Quantity} Price:{item.Price}");
 
-            //Console.WriteLine("--------------------------------Fetch order from database with a value object--------------------");
-            //var orderFromDatabaseWithValueObjectQuery = dbContext.Orders.Where(s => s.Address == orderForInsert.Address);
-            //Console.WriteLine($"SQL Query For Fetch is: {orderFromDatabaseWithValueObjectQuery.ToQueryString()}");
-            //var orderFromDatabaseWithValueObject = orderFromDatabaseWithValueObjectQuery.AsNoTracking().FirstOrDefault();
-            //Console.WriteLine($"Fetched Id: {orderFromDatabaseWithValueObject.Id.Value}");
-            //Console.WriteLine($"Fetched Name.Firstname: {orderFromDatabaseWithValueObject.Name.Firstname}");
-            //Console.WriteLine($"Fetched Name.Lastname: {orderFromDatabaseWithValueObject.Name.Lastname}");
-            //Console.WriteLine($"Fetched Address.City: {orderFromDatabaseWithValueObject.Address.City}");
-            //Console.WriteLine($"Fetched Address.Street: {orderFromDatabaseWithValueObject.Address.Street}");
-            //Console.WriteLine($"Fetched Address.Unit: {orderFromDatabaseWithValueObject.Address.Unit}");
-            //Console.WriteLine($"Fetched Address.ZipCode: {orderFromDatabaseWithValueObject.Address.ZipCode}");
-            //line = 1;
-            //foreach (var item in orderFromDatabaseWithValueObject.OrderLines)
-            //    Console.WriteLine($"Inserted OrderLine {line++}: ProductId:{item.ProductId} Quantity:{item.Quantity} Price:{item.Price}");
+            try
+            {
+                Console.WriteLine("--------------------------------Fetch order from database with a value object causes exception--------------------");
+                var orderFromDatabaseWithValueObjectQuery = dbContext.Orders.Where(s => s.Address == orderForInsert.Address);
+                Console.WriteLine($"SQL Query For Fetch is: {orderFromDatabaseWithValueObjectQuery.ToQueryString()}");
+                var orderFromDatabaseWithValueObject = orderFromDatabaseWithValueObjectQuery.AsNoTracking().FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine("--------------------------------Fetch order from database with name value object--------------------");
+            var orderFromDatabaseWithNameValueObjectQuery = dbContext.Orders.Where(s => s.Name.Firstname == orderForInsert.Name.Firstname&&
+                                                                                        s.Name.Lastname==orderForInsert.Name.Lastname);
+            Console.WriteLine($"SQL Query For Fetch is: {orderFromDatabaseWithNameValueObjectQuery.ToQueryString()}");
+            var orderFromDatabaseWithNameValueObject = orderFromDatabaseWithNameValueObjectQuery.AsNoTracking().FirstOrDefault();
+            Console.WriteLine($"Fetched Id: {orderFromDatabaseWithNameValueObject.Id.Value}");
+            Console.WriteLine($"Fetched Name.Firstname: {orderFromDatabaseWithNameValueObject.Name.Firstname}");
+            Console.WriteLine($"Fetched Name.Lastname: {orderFromDatabaseWithNameValueObject.Name.Lastname}");
+            Console.WriteLine($"Fetched Address.City: {orderFromDatabaseWithNameValueObject.Address.City}");
+            Console.WriteLine($"Fetched Address.Street: {orderFromDatabaseWithNameValueObject.Address.Street}");
+            Console.WriteLine($"Fetched Address.Unit: {orderFromDatabaseWithNameValueObject.Address.Unit}");
+            Console.WriteLine($"Fetched Address.ZipCode: {orderFromDatabaseWithNameValueObject.Address.ZipCode}");
+            line = 1;
+            foreach (var item in orderFromDatabaseWithNameValueObject.OrderLines)
+                Console.WriteLine($"Inserted OrderLine {line++}: ProductId:{item.ProductId} Quantity:{item.Quantity} Price:{item.Price}");
+
 
             Console.WriteLine("--------------------------------Fetch order from database with a value of value object--------------------");
             var orderFromDatabaseWithValueOfValueObjectQuery = dbContext.Orders.Where(s => s.Address.Unit == orderForInsert.Address.Unit);

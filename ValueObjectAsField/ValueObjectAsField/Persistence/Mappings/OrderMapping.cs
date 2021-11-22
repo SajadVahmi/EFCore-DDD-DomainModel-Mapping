@@ -20,12 +20,14 @@ namespace ValueObjectAsField.Persistence.Mappings
 
             builder.OwnsOne(e => e.Name, map =>
             {
+                map.WithOwner();
                 map.Property(v => v.Firstname).HasColumnName("Firstname");
                 map.Property(v => v.Lastname).HasColumnName("Lastname");
             });
 
             builder.OwnsOne(e => e.Address, map =>
             {
+                map.WithOwner();
                 map.Property(v => v.City).HasColumnName("City");
                 map.Property(v => v.Street).HasColumnName("Street");
                 map.Property(v => v.Unit).HasColumnName("Unit");
